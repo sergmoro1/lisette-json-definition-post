@@ -1,0 +1,20 @@
+select.list, input.digit, span.label {
+	width:100px;
+}
+
+input.digit, span.label {
+	text-align:right;
+}
+
+span.label {
+	display:inline-block;
+}
+
+img.thumbnail {
+	width:120px; padding-right:10px;
+}
+
+#block_appendix {
+	display:none; 
+	padding:10px 20px;
+}

@@ -1,0 +1,54 @@
+.price_per_item {
+	float:left; 
+	margin-top:14px;
+}
+
+.price_total {
+	float:right; 
+}
+
+span.head {
+	font-weight: bold;
+}
+
+span.item {
+	padding:0px 20px 0px 10px;
+}
+
+span.medium {
+	font-size:120%;
+}
+
+span.big {
+	font-size: 200%;
+}
+
+th.head, td.value {
+	text-align:center;
+}
+
+span.price {
+	color:#24890D; /* green */
+	/* color:#EF4D3C; red */
+}
+
+span.contact {
+	color: #21759b;
+}
+
+select.criteria {
+	width:70px;
+}
+
+div.thumbnail {
+	float:left;
+	margin-right:20px;
+}
+
+div.row {
+	float:left;
+}
+
+div.clear {
+	clear:both;
+}
