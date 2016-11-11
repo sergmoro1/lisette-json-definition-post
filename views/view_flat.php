@@ -2,11 +2,11 @@
 
 <p>
 	<div class='price_per_item'>
-		[pricePerItem] руб./м2
+		[pricePerItem] руб/м2
 	</div>
 
 	<div class='price_total'>
-		<span class='big price'>[priceTotal]</span> руб.
+		<span class='big price'>[priceTotal]</span> руб
 	</div> 
 
 	<div class='clear'></div>

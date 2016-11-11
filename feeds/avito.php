@@ -1,8 +1,11 @@
 <?php
 /**
+ * @author - Sergey Morozov <sergmoro1@ya.ru>
+ * @license - MIT
+ * 
  * Avito.ru feed
  *
-*/
+ */
 
 global $post;
 

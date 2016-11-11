@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: Lisette JSON Definition Post
-Plugin URI: http://lisette.su/re-agent
-Description: Record Definition in a post_content by JSON like notation - { name:"string", name:number, ... }
-Version: 1.0
-Author: sergmoro1@ya.ru
-Author URI: http://lisette.su
-License: GPL
+Plugin URI: http://lisette.vorst.ru
+Description: JSON definition in a post content turns the text to the full featured record
+Version: 1.1
+Author: Sergey Morozov
+Author URI: http://vorst.ru
+License: MIT
 */
  
 /**
@@ -14,7 +14,7 @@ License: GPL
  * 
  * @var string
  */
-define('JDP_VERSION', '1.0');
+define('JDP_VERSION', '1.1');
  
 /**
  * Path to the plugin directory
@@ -23,12 +23,30 @@ define('JDP_VERSION', '1.0');
  */
 define('JDP__DOCUMENT_ROOT', dirname(__FILE__));
 
-require_once 'Application.php';
+require_once 'RealtyApplication.php';
 require_once 'Criteria.php';
 require_once 'YaMap.php';
- 
+
+/*
+ * Filling in the categories from a pre-defined file.
+ * Once, when the plugin is activated.
+ */
+function lisette_json_definition_post_activate() {
+	$realty_categories = require(dirname(__FILE__) . '/config/categories.php');
+	foreach($realty_categories as $category) {
+		if(!get_category_by_slug($category['category_nicename'])) {
+			if($category['category_parent']) {
+				$term = get_category_by_slug($category['category_parent']);
+				$category['category_parent'] = $term->term_id;
+			}
+			wp_insert_category($category);
+		}
+	}
+}
+register_activation_hook(__FILE__, 'lisette_json_definition_post_activate');
+
 try {
-    $application = new Lisette_JDP_Application();
+    $application = new RealtyApplication();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
